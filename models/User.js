@@ -46,8 +46,9 @@ User.init(
       type: DataTypes.STRING,
       allowNull: false
     },
-    lookingFor: {
-      type: DataTypes.STRING
+    interest: {
+      type: DataTypes.STRING,
+      allowNull: false
     }
   },
   {
