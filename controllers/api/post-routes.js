@@ -19,11 +19,11 @@ router.get('/', (req, res) => {
             }
         ]
     })
-    .then(dbPostData => res.json(dbPostData))
-    .catch(err => {
-        console.log(err);
-        res.status(500).json(err);
-    })
+        .then(dbPostData => res.json(dbPostData))
+        .catch(err => {
+            console.log(err);
+            res.status(500).json(err);
+        })
 })
 
 //CREATE POST
@@ -34,11 +34,48 @@ router.post('/', (req, res) => {
         //change to req.session.user_id after session setup
         user_id: req.body.user_id
     })
-    .then(dbPostData => res.json(dbPostData))
-    .catch(err => {
-        console.log(err);
-        res.status(500).json(err);
-    })
+        .then(dbPostData => res.json(dbPostData))
+        .catch(err => {
+            console.log(err);
+            res.status(500).json(err);
+        })
 })
+
+
+//EDIT POST
+router.put('/:id', (req, res) => {
+    Post.update(
+        {
+            title: req.body.title,
+            post_text: req.body.post_text
+        },
+        {
+            where: {
+                id: req.params.id
+            }
+        }
+    )
+        .then(dbPostData => res.json(dbPostData))
+        .catch(err => {
+            console.log(err);
+            res.status(500).json(err);
+        })
+})
+
+//DELETE POST
+router.delete('/:id', (req, res) => {
+    Post.destroy({
+        where: {
+            id: req.params.id
+        }
+    }
+    )
+        .then(dbPostData => res.json(dbPostData))
+        .catch(err => {
+            console.log(err);
+            res.status(500).json(err);
+        })
+})
+
 
 module.exports = router;
