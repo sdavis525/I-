@@ -37,6 +37,18 @@ User.init(
       validate: {
         len: [4]
       }
+    },
+    gender: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    seeking: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    interest: {
+      type: DataTypes.STRING,
+      allowNull: false
     }
   },
   {
