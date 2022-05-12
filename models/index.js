@@ -10,33 +10,28 @@ User.hasMany(Post, {
 });
 
 Post.belongsTo(User, {
-  foreignKey: 'user_id',
-  onDelete: 'SET NULL'
+  foreignKey: 'user_id'
 });
 
 User.belongsToMany(Post, {
-  through: like,
+  through: Like,
   as: 'liked_posts',
 
-  foreignKey: 'user_id',
-  onDelete: 'SET NULL'
+  foreignKey: 'user_id'
 });
 
 Post.belongsToMany(User, {
   through: Like,
   as: 'liked_posts',
-  foreignKey: 'post_id',
-  onDelete: 'SET NULL'
+  foreignKey: 'post_id'
 });
 
 Like.belongsTo(User, {
-  foreignKey: 'user_id',
-  onDelete: 'SET NULL'
+  foreignKey: 'user_id'
 });
 
 Like.belongsTo(Post, {
-  foreignKey: 'post_id',
-  onDelete: 'SET NULL'
+  foreignKey: 'post_id'
 });
 
 User.hasMany(Like, {
@@ -48,18 +43,15 @@ Post.hasMany(Like, {
 });
 
 Comment.belongsTo(User, {
-  foreignKey: 'user_id',
-  onDelete: 'SET NULL'
+  foreignKey: 'user_id'
 });
 
 Comment.belongsTo(Post, {
-  foreignKey: 'post_id',
-  onDelete: 'SET NULL'
+  foreignKey: 'post_id'
 });
 
 User.hasMany(Comment, {
-  foreignKey: 'user_id',
-  onDelete: 'SET NULL'
+  foreignKey: 'user_id'
 });
 
 Post.hasMany(Comment, {

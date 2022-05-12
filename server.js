@@ -7,8 +7,8 @@ const app = express();
 const PORT = process.env.PORT || 3001;
 
 app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
-app.use(require('./controllers/'));
+app.use(express.urlencoded({ extended: true }));
+app.use(routes);
 
 // turn on connection to database and server
 sequelize.sync({ force: false }).then(() => {

@@ -37,35 +37,19 @@ User.init(
       validate: {
         len: [4]
       }
-    }
-  },
-  {
+    },
     gender: {
-        type: DataTypes.STRING,
-        allowNull: false,
-        validate: {
-          len: [1]
-        }
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    seeking: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    lookingFor: {
+      type: DataTypes.STRING
     }
   },
-  {
-    seeking: {
-        type: DataTypes.STRING,
-        allowNull: false,
-        validate: {
-          len: [1]
-        }
-    }
-  },   
-  {
-    lookingfor: {
-        type: DataTypes.STRING,
-        allowNull: false,
-        validate: {
-          len: [1]
-        }
-    }
-  }, 
   {
     hooks: {
       // set up beforeCreate lifecycle "hook" functionality
