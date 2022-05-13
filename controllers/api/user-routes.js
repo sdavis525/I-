@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { User } = require('../../models');
+const { User, Post, Comment } = require('../../models');
 
 // get all users
 router.get('/', (req, res) => {
@@ -14,12 +14,32 @@ router.get('/', (req, res) => {
 });
 
 router.get('/:id', (req, res) => {
-    User.findOne({
-      attributes: { exclude: ['password'] },
-      where: {
-        id: req.params.id
+  User.findOne({
+    attributes: { exclude: ['password'] },
+    where: {
+      id: req.params.id
+    },
+    include: [
+      {
+        model: Post,
+        attributes: ['id', 'title', 'post_url', 'created_at']
       },
-    })
+      {
+        model: Comment,
+        attributes: ['id', 'comment_text', 'created_at'],
+        include: {
+          model: Post,
+          attributes: ['title']
+        }
+      },
+      // {
+      //   model: Post,
+      //   attributes: ['title'],
+      //   through: Vote,
+      //   as: 'voted_posts'
+      // }
+    ]
+  })
     .then(dbUserData => {
       if (!dbUserData) {
         res.status(404).json({ message: 'No user found with this id' });
@@ -32,12 +52,14 @@ router.get('/:id', (req, res) => {
       res.status(500).json(err);
     });
 });
-
 router.post('/', (req, res) => {
   User.create({
     username: req.body.username,
     email: req.body.email,
-    password: req.body.password
+    password: req.body.password,
+    gender: req.body.gender,
+    seeking: req.body.seeking,
+    interest: req.body.interest
   })
     .then(dbUserData => res.json(dbUserData))
     .catch(err => {
