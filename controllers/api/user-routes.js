@@ -16,12 +16,32 @@ router.get('/', (req, res) => {
 
 //GET SINGLE USER  - /api/users/id
 router.get('/:id', (req, res) => {
-    User.findOne({
-      attributes: { exclude: ['password'] },
-      where: {
-        id: req.params.id
+  User.findOne({
+    attributes: { exclude: ['password'] },
+    where: {
+      id: req.params.id
+    },
+    include: [
+      {
+        model: Post,
+        attributes: ['id', 'title', 'post_url', 'created_at']
       },
-    })
+      {
+        model: Comment,
+        attributes: ['id', 'comment_text', 'created_at'],
+        include: {
+          model: Post,
+          attributes: ['title']
+        }
+      },
+      // {
+      //   model: Post,
+      //   attributes: ['title'],
+      //   through: Vote,
+      //   as: 'voted_posts'
+      // }
+    ]
+  })
     .then(dbUserData => {
       if (!dbUserData) {
         res.status(404).json({ message: 'No user found with this id' });
@@ -34,14 +54,21 @@ router.get('/:id', (req, res) => {
       res.status(500).json(err);
     });
 });
+<<<<<<< HEAD
 
 
 //CREATE NEW USER  -  /api/users
 router.post('/', withAuth, (req, res) => {
+=======
+router.post('/', (req, res) => {
+>>>>>>> 37ef8606e6164becdaa5cd84bc94613f6329d373
   User.create({
     username: req.body.username,
     email: req.body.email,
-    password: req.body.password
+    password: req.body.password,
+    gender: req.body.gender,
+    seeking: req.body.seeking,
+    interest: req.body.interest
   })
     //save user id and email to a session
     .then(dbUserData => {
