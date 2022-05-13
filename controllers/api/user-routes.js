@@ -54,14 +54,10 @@ router.get('/:id', (req, res) => {
       res.status(500).json(err);
     });
 });
-<<<<<<< HEAD
 
 
 //CREATE NEW USER  -  /api/users
 router.post('/', withAuth, (req, res) => {
-=======
-router.post('/', (req, res) => {
->>>>>>> 37ef8606e6164becdaa5cd84bc94613f6329d373
   User.create({
     username: req.body.username,
     email: req.body.email,
