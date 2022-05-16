@@ -23,7 +23,7 @@ app.use(session(sess));
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(routes);
+app.use(require('./controllers/'));
 
 
 // turn on connection to database and server
