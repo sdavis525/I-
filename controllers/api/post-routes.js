@@ -102,33 +102,12 @@ router.post('/', withAuth, (req, res) => {
 
 //LIKE A POST
 router.put('/like', withAuth, (req, res) => {
-    Like.create({
-        user_id: req.body.user_id,
-        post_id: req.body.post_id
-    })
-    .then(() => {
-        // then find the post we just voted on
-        return Post.findOne({
-          where: {
-            id: req.body.post_id
-          },
-          attributes: [
-            'id',
-            'post_text',
-            'title',
-            'created_at',
-            // use raw MySQL aggregate function query to get a count of how many likes the post has and return it under the name `like_count`
-            // [
-            //   sequelize.literal('(SELECT COUNT(*) FROM like WHERE post.id = like.post_id)'),
-            //   'like_count'
-            // ]
-          ]
-        })
-        .then(dbPostData => res.json(dbPostData))
-        .catch(err => {
-          console.log(err);
-          res.status(400).json(err);
-        });
+    //use custom static method created in models/Post.js
+    Post.uplike({ ...req.body, user_id: req.session.user_id }, { Like, Comment, User })
+    .then(updatedLikeData => res.json(updatedLikeData))
+    .catch(err => {
+        console.log(err);
+        res.status(500).json(err);
     })
 })
 
