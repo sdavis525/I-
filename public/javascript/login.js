@@ -1,21 +1,21 @@
 async function loginFormHandler(event) {
     event.preventDefault();
   
-    const email = document.querySelector('#email-login').value.trim();
+    const username = document.querySelector('#username-login').value.trim();
     const password = document.querySelector('#password-login').value.trim();
   
-    if (email && password) {
+    if (username && password) {
       const response = await fetch('/api/users/login', {
         method: 'post',
         body: JSON.stringify({
-          email,
+          username,
           password
         }),
         headers: { 'Content-Type': 'application/json' }
       });
   
       if (response.ok) {
-        document.location.replace('/dashboard/');
+        document.location.replace('/dashboard');
       } else {
         alert(response.statusText);
       }
@@ -28,14 +28,20 @@ async function loginFormHandler(event) {
     const username = document.querySelector('#username-signup').value.trim();
     const email = document.querySelector('#email-signup').value.trim();
     const password = document.querySelector('#password-signup').value.trim();
+    const gender = document.querySelector('#gender').value.trim();
+    const seeking = document.querySelector('#seeking').value.trim();
+    const interest = document.querySelector('#interest').value.trim();
   
-    if (username && email && password) {
+    if (username && email && password && gender && seeking && interest) {
       const response = await fetch('/api/users', {
         method: 'post',
         body: JSON.stringify({
           username,
           email,
-          password
+          password,
+          gender,
+          seeking,
+          interest
         }),
         headers: { 'Content-Type': 'application/json' }
       });
