@@ -1,9 +1,10 @@
 <ol class="post-list">
+  {{#each posts}}
   <li>
     <article class="post">
       <div class="title">
-        <a href="{{post_content}}" target="_blank">{{title}}</a>
-        <span>({{post_content}})</span>
+        <a href="{{posts.text}}" target="_blank">{{posts.title}}</a>
+        <span>({{posts.text}})</span>
       </div>
       <div class="meta">
         {{!-- {{like_count}} by {{user.username}} on
@@ -13,4 +14,6 @@
       </div>
     </article>
   </li>
+  {{/each}}
 </ol>
+
