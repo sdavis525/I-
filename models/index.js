@@ -1,7 +1,7 @@
 // import all models
 const Post = require('./Post');
 const User = require('./User');
-const Like = require('./Like');
+const Heart = require('./Heart');
 const Comment = require('./Comment');
 
 // create associations
@@ -14,31 +14,31 @@ Post.belongsTo(User, {
 });
 
 User.belongsToMany(Post, {
-  through: Like,
-  as: 'liked_posts',
+  through: Heart,
+  as: 'Hearted_posts',
 
   foreignKey: 'user_id'
 });
 
 Post.belongsToMany(User, {
-  through: Like,
-  as: 'liked_posts',
+  through: Heart,
+  as: 'Hearted_posts',
   foreignKey: 'post_id'
 });
 
-Like.belongsTo(User, {
+Heart.belongsTo(User, {
   foreignKey: 'user_id'
 });
 
-Like.belongsTo(Post, {
+Heart.belongsTo(Post, {
   foreignKey: 'post_id'
 });
 
-User.hasMany(Like, {
+User.hasMany(Heart, {
   foreignKey: 'user_id'
 });
 
-Post.hasMany(Like, {
+Post.hasMany(Heart, {
   foreignKey: 'post_id'
 });
 
@@ -58,4 +58,4 @@ Post.hasMany(Comment, {
   foreignKey: 'post_id'
 });
 
-module.exports = { User, Post, Like, Comment };
+module.exports = { User, Post, Heart, Comment };
