@@ -1,6 +1,12 @@
+const path = require('path');
 const express = require('express');
 const routes = require('./controllers/');
 const sequelize = require('./config/connection');
+const exphbs = require('express-handlebars');
+const hbs = exphbs.create({});
+
+const app = express();
+const PORT = process.env.PORT || 3001;
 
 //EXPRESS-SESSION AND CONNECT-SESSION-SEQUELIZE (sets up an express.js session and connects the session to our sequelize database)
 const session = require('express-session');
@@ -15,15 +21,23 @@ const sess = {
   })
 };
 
-const app = express();
-const PORT = process.env.PORT || 3001;
 
 //express-session and sequelize store
 app.use(session(sess));
 
+//handlebars
+app.engine('handlebars', hbs.engine);
+app.set('view engine', 'handlebars');
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+<<<<<<< HEAD
 app.use(require('./controllers/'));
+=======
+app.use(express.static(path.join(__dirname, 'public')));
+
+app.use(routes);
+>>>>>>> ab37ce7409c0de54420a7e268e75c4cb135e14a1
 
 
 // turn on connection to database and server
