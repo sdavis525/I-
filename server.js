@@ -31,13 +31,9 @@ app.set('view engine', 'handlebars');
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-<<<<<<< HEAD
-app.use(require('./controllers/'));
-=======
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(routes);
->>>>>>> ab37ce7409c0de54420a7e268e75c4cb135e14a1
 
 
 // turn on connection to database and server
