@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { User } = require('../../models');
+const { User, Post, Comment, Heart } = require('../../models');
 const withAuth = require('../../utils/auth');
 
 // GET ALL USERS  - /api/users
@@ -24,7 +24,7 @@ router.get('/:id', (req, res) => {
     include: [
       {
         model: Post,
-        attributes: ['id', 'title', 'post_url', 'created_at']
+        attributes: ['id', 'title', 'post_text', 'created_at']
       },
       {
         model: Comment,
@@ -37,8 +37,8 @@ router.get('/:id', (req, res) => {
       // {
       //   model: Post,
       //   attributes: ['title'],
-      //   through: Vote,
-      //   as: 'voted_posts'
+      //   through: Heart,
+      //   as: 'hearted_posts'
       // }
     ]
   })
@@ -57,7 +57,7 @@ router.get('/:id', (req, res) => {
 
 
 //CREATE NEW USER  -  /api/users
-router.post('/', withAuth, (req, res) => {
+router.post('/', (req, res) => {
   User.create({
     username: req.body.username,
     email: req.body.email,
