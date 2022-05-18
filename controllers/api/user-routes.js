@@ -34,12 +34,12 @@ router.get('/:id', (req, res) => {
           attributes: ['title']
         }
       },
-      {
-        model: Post,
-        attributes: ['title'],
-        through: Heart,
-        as: 'hearted_posts'
-      }
+      // {
+      //   model: Post,
+      //   attributes: ['title'],
+      //   through: Heart,
+      //   as: 'hearted_posts'
+      // }
     ]
   })
     .then(dbUserData => {
