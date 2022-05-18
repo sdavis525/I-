@@ -1,5 +1,6 @@
+
 const router = require('express').Router();
-const { Post, User, Comment, Like } = require('../../models');
+const { Post, User, Comment, Heart } = require('../../models');
 const withAuth = require('../../utils/auth');
 const sequelize = require('../../config/connection');
 
@@ -16,7 +17,7 @@ router.get('/', (req, res) => {
             'post_text',
             'user_id',
             'created_at',
-            // [sequelize.literal('(SELECT COUNT(*) FROM like WHERE post.id = like.post_id)'), 'like_count']
+            [sequelize.literal('(SELECT COUNT(*) FROM heart WHERE post.id = heart.post_id)'), 'heart_count']
         ],
         include: [
             {
@@ -43,7 +44,7 @@ router.get('/', (req, res) => {
 
 
 //GET INDIVIDUAL POST
-router.get('/:id', withAuth, (req, res) => {
+router.get('/:id', (req, res) => {
     Post.findOne({
       where: {
         id: req.params.id
@@ -54,10 +55,9 @@ router.get('/:id', withAuth, (req, res) => {
         'title', 
         'created_at',
         // use raw MySQL aggregate function query to get a count of how many votes the post has and return it under the name `vote_count`
-        // [
-        //   sequelize.literal('(SELECT COUNT(*) FROM like WHERE post.id = like.post_id)'),
-        //   'like_count'
-        // ]
+        [
+          sequelize.literal('(SELECT COUNT(*) FROM heart WHERE post.id = heart.post_id)'),'heart_count'
+        ]
       ],
       include: [
         // include the Comment model
@@ -76,11 +76,17 @@ router.get('/:id', withAuth, (req, res) => {
           attributes: ['username']
         }
       ]
-     })
-        .then(dbPostData => res.json(dbPostData))
-        .catch(err => {
-          console.log(err);
-          res.status(500).json(err);
+    })
+    .then(dbPostData => {
+      if (!dbPostData) {
+        res.status(404).json({ message: 'No post found with this id' });
+        return;
+      }
+      res.json(dbPostData);
+    })
+    .catch(err => {
+      console.log(err);
+      res.status(500).json(err);
         });
     });
 
@@ -100,11 +106,11 @@ router.post('/', withAuth, (req, res) => {
         })
 })
 
-//LIKE A POST
-router.put('/like', withAuth, (req, res) => {
+//Heart A POST
+router.put('/heart', withAuth, (req, res) => {
     //use custom static method created in models/Post.js
-    Post.uplike({ ...req.body, user_id: req.session.user_id }, { Like, Comment, User })
-    .then(updatedLikeData => res.json(updatedLikeData))
+    Post.heart({ ...req.body, user_id: req.session.user_id }, { Heart, Comment, User })
+    .then(updatedHeartData => res.json(updatedHeartData))
     .catch(err => {
         console.log(err);
         res.status(500).json(err);
@@ -116,8 +122,7 @@ router.put('/like', withAuth, (req, res) => {
 router.put('/:id', withAuth, (req, res) => {
     Post.update(
         {
-            title: req.body.title,
-            post_text: req.body.post_text
+            title: req.body.title
         },
         {
             where: {
