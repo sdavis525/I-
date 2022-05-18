@@ -180,7 +180,7 @@
  <div class="col-span-2">
     <div class="pt-10">
 <form class="bg-black shadow rounded-lg mb-6 p-4 w-full md:w-3/4">
-            <textarea name="message" placeholder="What are you looking for today?" class=" focus:outline-none  w-full rounded-lg p-2 text-sm bg-gray-100 border border-transparent appearance-none rounded-tg placeholder-gray-400"></textarea>
+            <textarea name="post" placeholder="What are you looking for today?" class=" focus:outline-none  w-full rounded-lg p-2 text-sm bg-gray-100 border border-transparent appearance-none rounded-tg placeholder-gray-400"></textarea>
             <footer class="flex justify-between mt-2">
                 <div class="flex gap-2">
                     <span class="flex items-center transition ease-out duration-300 hover:bg-blue-500 hover:text-white bg-blue-100 w-8 h-8 px-2 rounded-full text-blue-400 cursor-pointer">
@@ -193,7 +193,7 @@
                         <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" class="css-i6dzq1"><polyline points="4 17 10 11 4 5"></polyline><line x1="12" y1="19" x2="20" y2="19"></line></svg>
                     </span>
                 </div>
-                <button class="flex items-center py-2 px-4 rounded-lg text-sm bg-slate-700 text-white shadow-lg">Send
+                <button class="flex items-center py-2 px-4 rounded-lg text-sm bg-slate-700 text-white shadow-lg">Post
                     <svg class="ml-1" viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
                 </button>
             </footer>
@@ -205,6 +205,7 @@
                     <img class="w-12 h-12 object-cover rounded-full shadow cursor-pointer" alt="User avatar" src="./images/upshandler.jpg">
                 </div>
                 <div class="flex flex-col mb-2 ml-4 mt-1">
+                    
                     <div class="text-white text-sm font-semibold">TheWetBandit</div>
                     <div class="flex w-full mt-1">
                         <div class="text-white font-base text-xs mr-1 cursor-pointer">
@@ -215,8 +216,16 @@
                         </div>
                     </div>
                 </div>
+                
             </div>
             <div class="border-b border-gray-100"></div>
+            <button class="flex items-center py-2 px-4 rounded-sm text-sm bg-slate-700 text-white shadow-lg text-center">Delete
+    
+            </button>
+            <button class="flex items-center py-2 px-4 rounded-sm text-sm bg-slate-700 text-white shadow-lg text-center">Edit
+    
+            </button>
+            
             <div class="text-gray-400 font-medium text-sm mb-7 mt-6 mx-3 px-2">
                 <div class="grid grid-cols-6 col-span-2   gap-2  ">
                     <div class=" overflow-hidden rounded-xl col-span-3 max-h-[14rem]">
@@ -237,7 +246,7 @@
                 </div>
             </div>
             <div class="text-white text-sm mb-6 mx-3 px-2"> This week consisted of alot of travel, I just so glad to be back home. In need of a good time this weekend ....Anyone down to get weird with me?  <span class="text-gray-400">more</span></div>
-            <div class="flex justify-start mb-4 border-t border-gray-100">
+            <div class="flex justify-start mb-4">
                 <div class="flex w-full mt-1 pt-2 pl-5">
                     <span class="bg-white transition ease-out duration-300 hover:text-red-500 border w-8 h-8 px-2 pt-2 text-center rounded-full text-gray-400 cursor-pointer mr-2">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" width="14px" viewBox="0 0 24 24" stroke="currentColor">
@@ -262,7 +271,7 @@
                     </span>
                 </div>
             </div>
-            <div class="flex w-full border-t border-gray-100">
+            <div class="flex w-full ">
                 <div class="mt-3 mx-5 flex flex-row text-xs">
                     <div class="flex text-white font-normal rounded-md mb-2 mr-4 items-center">Comments:<div class="ml-1 text-gray-400 text-ms"> 30</div></div>
                     <div class="flex text-white font-normal rounded-md mb-2 mr-4 items-center">Relatability: <div class="ml-1 text-gray-400 text-ms"> 300</div></div>
@@ -275,15 +284,20 @@
             <div class="relative flex items-center self-center w-full max-w-xl p-4 overflow-hidden text-gray-600 focus-within:text-gray-400">
                 <img class="w-10 h-10 object-cover rounded-full shadow mr-2 cursor-pointer" alt="User avatar" src="images/womanprofile.jpg">
                 <span class="absolute inset-y-0 right-0 flex items-center pr-6">
-                    <button type="submit" class="p-1 focus:outline-none focus:shadow-none hover:text-blue-500">
-                    <svg class="w-6 h-6 transition ease-out duration-300 hover:text-blue-500 text-gray-400" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <button type="submit" class="p-1 focus:outline-none focus:shadow-none hover:text-white">
+                    <svg class="w-6 h-6 transition ease-out duration-300 hover:text-white text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                     </svg>
 
                     </button>
                 </span>
-                   <input type="search" class="w-full py-2 pl-4 pr-10 text-sm bg-gray-100 border border-transparent appearance-none rounded-tg placeholder-gray-400 focus:bg-white focus:outline-none focus:border-blue-500 focus:text-gray-900 focus:shadow-outline-blue" style="border-radius: 25px" placeholder="Post a comment..." autocomplete="off">
-            </div>
+                   <input type="comments" class="w-full py-2 pl-4 pr-10 text-sm bg-gray-100 border border-transparent appearance-none rounded-tg placeholder-gray-400 focus:bg-white focus:outline-none focus:border-blue-500 focus:text-gray-900 focus:shadow-outline-blue" style="border-radius: 25px" placeholder="Post a comment..." autocomplete="off">
+                   <button class="flex items-center py-2 px-4 rounded-sm text-sm bg-slate-700 text-white shadow-lg">comment
+                    <svg class="ml-1" viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+                </button>
+                </div>
+               
+            
         </div>
 
         <div class="bg-black shadow rounded-lg pb-4">
@@ -305,12 +319,18 @@
                     </div>
                 </div>
                 <div class="border-b border-gray-100 p-4"></div>
+                <button class="flex items-center py-2 px-4 rounded-sm text-sm bg-slate-700 text-white shadow-lg text-center">Delete
+    
+                </button>
+                <button class="flex items-center py-2 px-4 rounded-sm text-sm bg-slate-700 text-white shadow-lg text-center">Edit
+    
+                </button>
          <!--        <div class="text-gray-400 font-medium text-sm mb-7 mt-6 mx-3 px-2">
                     <img class="rounded w-full" src="https://picsum.photos/536/354">
                 </div> -->
                 <div class="text-white font-semibold  mb-2 mx-3 px-2">Daydreaming</div>
                 <div class="text-white text-sm mb-6 mx-3 px-2">Do you ever feel alone? I keep wishing and hoping for that perfect partner of mine. But these days it just seems like everyone is noncommital. 😮‍💨</div>
-                <div class="flex justify-start mb-4 border-t border-gray-100">
+                <div class="flex justify-start">
                     <div class="flex w-full mt-1 pt-2 pl-5">
                         <span class="bg-white transition ease-out duration-300 hover:text-red-500 border w-8 h-8 px-2 pt-2 text-center rounded-full text-gray-400 cursor-pointer mr-2">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" width="14px" viewBox="0 0 24 24" stroke="currentColor">
@@ -335,7 +355,7 @@
                         </span>
                     </div>
                 </div>
-                <div class="flex w-full border-t border-gray-100">
+                <div class="flex w-full ">
                     <div class="mt-3 mx-5 flex flex-row text-xs">
                         <div class="flex text-white font-normal rounded-md mb-2 mr-4 items-center">Comments:<div class="ml-1 text-gray-400 text-ms"> 68</div></div>
                         <div class="flex text-white font-normal rounded-md mb-2 mr-4 items-center"> Relatability: <div class="ml-1 text-gray-400 text-ms"> 1k</div></div>
@@ -355,7 +375,11 @@
                         </button>
                     </span>
                      <input type="search" class="w-full py-2 pl-4 pr-10 text-sm bg-gray-100 border border-transparent appearance-none rounded-tg placeholder-gray-400 focus:bg-white focus:outline-none focus:border-blue-500 focus:text-gray-900 focus:shadow-outline-blue" style="border-radius: 25px" placeholder="Post a comment..." autocomplete="off">
-                </div>
+                     <button class="flex items-center py-2 px-4 rounded-sm text-sm bg-slate-700 text-white shadow-lg text-center">comment
+                        <svg class="ml-1" viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+                    </button>
+                
+                    </div>
             </div>
 
             <div class="bg-black shadow rounded-lg mt-10">
@@ -376,12 +400,18 @@
                     </div>
                 </div>
                 <div class="border-b border-gray-100"></div>
+                <button class="flex items-center py-2 px-4 rounded-sm text-sm bg-slate-700 text-white shadow-lg text-center">Delete
+    
+                </button>
+                <button class="flex items-center py-2 px-4 rounded-sm text-sm bg-slate-700 text-white shadow-lg text-center">Edit
+    
+                </button>
                 <div class="text-gray-400 font-medium text-sm mb-7 mt-6 mx-3 px-2">
                     <img class="rounded w-full" src="./images/beingme.jpg">
                 </div>
                 <div class="text-white font-semibold  mb-2 mx-3 px-2">Party Time</div>
                 <div class="text-white text-sm mb-6 mx-3 px-2">Great Weather, Great Company, Great Purpose, Great Cause. I'm so happy I decided to come to D.C. this weekend. Anyone in the area willing to show me around? </div>
-                <div class="flex justify-start mb-4 border-t border-gray-100">
+                <div class="flex justify-start mb-4">
                     <div class="flex w-full mt-1 pt-2 pl-5">
                         <span class="bg-white transition ease-out duration-300 hover:text-red-500 border w-8 h-8 px-2 pt-2 text-center rounded-full text-gray-400 cursor-pointer mr-2">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" width="14px" viewBox="0 0 24 24" stroke="currentColor">
@@ -406,7 +436,7 @@
                         </span>
                     </div>
                 </div>
-                <div class="flex w-full border-t border-gray-100">
+                <div class="flex w-full ">
                     <div class="mt-3 mx-5 flex flex-row text-xs">
                         <div class="flex text-white font-normal rounded-md mb-2 mr-4 items-center">Comments:<div class="ml-1 text-gray-400 text-ms">37 </div></div>
                         <div class="flex text-white font-normal rounded-md mb-2 mr-4 items-center">Relatability: <div class="ml-1 text-gray-400 text-ms"> 20</div></div>
@@ -426,7 +456,13 @@
                         </button>
                     </span>
                      <input type="search" class="w-full py-2 pl-4 pr-10 text-sm bg-gray-100 border border-transparent appearance-none rounded-tg placeholder-gray-400 focus:bg-white focus:outline-none focus:border-blue-500 focus:text-gray-900 focus:shadow-outline-blue" style="border-radius: 25px" placeholder="Post a comment..." autocomplete="off">
-                </div>
+                
+                     <button class="flex items-center py-2 px-4 rounded-sm text-sm bg-slate-700 text-white shadow-lg text-center">comment
+                        <svg class="ml-1" viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+                    </button>
+                
+                
+                    </div>
             </div>
  </div>
   <div class="hidden md:block lg:block py-8  sticky top-6">
