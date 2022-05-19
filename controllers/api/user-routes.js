@@ -1,6 +1,7 @@
 const router = require('express').Router();
-const { User, Post, Comment, Heart } = require('../../models');
+const { User, Post, Comment, Heart, Interested } = require('../../models');
 const withAuth = require('../../utils/auth');
+const sequelize = require('../../config/connection');
 
 // GET ALL USERS  - /api/users
 router.get('/', (req, res) => {
@@ -81,6 +82,17 @@ router.post('/', (req, res) => {
       res.status(500).json(err);
     });
 });
+
+//logged in user will be able to 'click' and show another user they are interested in them
+//PUT /api/users/interested
+router.put('/interested', (req, res) => {
+  Interested.create({
+    user_id: req.body.user_id,
+  })
+    .then(dbUserData => res.json(dbUserData))
+    .catch(err => res.json(err));
+});
+
 
 //LOGIN ROUTE  -  api/users/login
 router.post('/login', (req, res) => {
@@ -169,5 +181,5 @@ router.put('/:id', (req, res) => {
         res.status(500).json(err);
       });
   });
-  
+
 module.exports = router;

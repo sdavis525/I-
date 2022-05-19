@@ -3,6 +3,7 @@ const Post = require('./Post');
 const User = require('./User');
 const Heart = require('./Heart');
 const Comment = require('./Comment');
+const Interested = require('./Interested');
 
 // create associations
 User.hasMany(Post, {
@@ -58,4 +59,13 @@ Post.hasMany(Comment, {
   foreignKey: 'post_id'
 });
 
-module.exports = { User, Post, Heart, Comment };
+//Begin Interested in test associations:
+Interested.belongsTo(User, {
+  foerignKey: 'user_id'
+});
+
+User.hasMany(Interested, {
+  foerignKey: 'user_id'
+});
+
+module.exports = { User, Post, Heart, Comment, Interested };
