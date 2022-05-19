@@ -49,6 +49,14 @@ User.init(
     interest: {
       type: DataTypes.STRING,
       allowNull: false
+    },
+    occupation: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    about: {
+      type: DataTypes.STRING,
+      allowNull: false
     }
   },
   {
