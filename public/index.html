@@ -7,16 +7,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
    
     
- <link rel="stylesheet" type="text/css" href="./css/tailwind.css">
-    <script defer="" src="https://unpkg.com/alpinejs@3.2.3/dist/cdn.min.js"></script>
 
+   
     <title> i++ </title>
-
-     <link rel="stylesheet" href="https://unpkg.com/tailwindcss@2.2.4/dist/tailwind.min.css"> 
+    <link rel="stylesheet" href="style.css">
+    
 </head>
 <body class="bg-black" style="">
     
-<script defer="" src="https://unpkg.com/alpinejs@3.1.1/dist/cdn.min.js"></script>
+
 <style>
 
     .hover-image-1{
@@ -30,10 +29,10 @@
 </style>
 
 
-    <div class="flex h-screen  bg-slate-700" :class="{ 'overflow-hidden': isSideMenuOpen}">
+    <div class="flex h-screen  bg-black" :class="{ 'overflow-hidden': isSideMenuOpen}">
         <li class="relative ">
             <button class="align-middle rounded-full border-2 border-gray-300 shadow-lg  focus:shadow-outline-purple focus:outline-none">
-              <img class="object-cover w-20 h-20 rounded-full hover-image-1 flex-shrink-0" src="./images/logo.PNG" alt="" aria-hidden="true">
+              <img class="object-cover w-20 h-20 rounded-full hover-image-1 flex-shrink-0" src="../views/images/logo.PNG" alt="" aria-hidden="true">
             </button>
           </li>
       <!-- Desktop sidebar -->
@@ -133,7 +132,7 @@
   
   
   <div class="flex justify-between">
-      
+      {{>Feed}}
             <ul class="flex items-center flex-shrink-0 space-x-6">
               <!-- Profile menu -->
              
@@ -172,7 +171,7 @@
           </div>
         </header>
         <main class="h-full pb-16 overflow-y-auto">
-          <!-- Remove everything INSIDE this div to a really blank page -->
+         
 
 <!-- Main Contents -->
 
@@ -195,23 +194,25 @@
                 </div>
                
                <!--post btn-->
-                <button class="flex items-center py-2 px-4 rounded-lg text-sm bg-slate-700 text-white shadow-lg">Post
+                <button class="flex items-center py-2 px-4 rounded-lg text-sm bg-black text-white shadow-lg">Post
                     <svg class="ml-1" viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
                 </button>
             </footer>
         </form>
 </div>
+#each
 <div class="bg-black shadow rounded-lg mb-6">
+    {>posts}
             <div class="flex flex-row px-2 py-3 mx-3">
                 <div class="w-auto h-auto rounded-full">
-                    <img class="w-12 h-12 object-cover rounded-full shadow cursor-pointer" alt="User avatar" src="./images/upshandler.jpg">
+                    <img class="w-12 h-12 object-cover rounded-full shadow cursor-pointer" alt="User avatar" src="../views/images/upshandler.jpg">
                 </div>
                 <div class="flex flex-col mb-2 ml-4 mt-1">
                     
                     <div class="text-white text-sm font-semibold">TheWetBandit</div>
                     <div class="flex w-full mt-1">
                         <div class="text-white font-base text-xs mr-1 cursor-pointer">
-                            UPS Package Handler
+                            {user.title}
                         </div>
                         <div class="text-white font-thin text-xs">
                             • 30 seconds ago
@@ -223,29 +224,29 @@
           
           <!-- Edit and delete btn -->
             <div class="border-b border-gray-100"></div>
-            <button class="flex items-center py-2 px-4 rounded-sm text-sm bg-slate-700 text-white shadow-lg text-center">Delete
+            <button class="flex items-center py-2 px-4 rounded-sm text-sm bg-black text-white shadow-lg text-center">Delete
     
             </button>
-            <button class="flex items-center py-2 px-4 rounded-sm text-sm bg-slate-700 text-white shadow-lg text-center">Edit
+            <button class="flex items-center py-2 px-4 rounded-sm text-sm bg-black text-white shadow-lg text-center">Edit
     
             </button>
             
             <div class="text-gray-400 font-medium text-sm mb-7 mt-6 mx-3 px-2">
                 <div class="grid grid-cols-6 col-span-2   gap-2  ">
                     <div class=" overflow-hidden rounded-xl col-span-3 max-h-[14rem]">
-                        <img class="h-full w-full object-cover " src="./images/upshandler.jpg" alt="">
+                        <img class="h-full w-full object-cover " src="../views/images/upshandler.jpg" alt="">
                     </div>
                     <div class=" overflow-hidden rounded-xl col-span-3 max-h-[14rem]">
-                        <img class="h-full w-full object-cover  " src="images/handler1.jpg" alt="">
+                        <img class="h-full w-full object-cover  " src="../views/images/handler1.jpg" alt="">
                     </div>
                     <div class=" overflow-hidden rounded-xl col-span-2 max-h-[10rem]">
-                        <img class="h-full w-full object-cover " src="images/handler3.jpg" alt="">
+                        <img class="h-full w-full object-cover " src="../views/images/handler3.jpg" alt="">
                     </div>
                     <div class=" overflow-hidden rounded-xl col-span-2 max-h-[10rem]">
-                        <img class="h-full w-full object-cover " src="images/handler2.jpg" alt="">
+                        <img class="h-full w-full object-cover " src="../views/images/handler2.jpg" alt="">
                     </div>
                     <div class="relative overflow-hidden rounded-xl col-span-2 max-h-[10rem]">
-                        <img class="h-full w-full object-cover " src="images/handler4.jpg" alt="">
+                        <img class="h-full w-full object-cover " src="../views/images/handler4.jpg" alt="">
                     </div>
                 </div>
             </div>
@@ -269,7 +270,8 @@
                         </svg>
                     </span>
                     <button type="heart" class="transition ease-out duration-300 hover:bg-gray-50 bg-gray-100 h-8 px-2 py-2 text-center rounded-full text-gray-100 cursor-pointer">
-                       <!--heart btn-->
+                       
+                        <!--heart btn-->
                         <svg class="h-4 w-4 text-red-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"></path>
                         </svg>
@@ -278,7 +280,7 @@
             </div>
             <div class="flex w-full ">
                 <div class="mt-3 mx-5 flex flex-row text-xs">
-                    <div class="flex text-white font-normal rounded-md mb-2 mr-4 items-center">Comments:<div class="ml-1 text-gray-400 text-ms"> 30</div></div>
+                    <div class="flex text-white font-normal rounded-md mb-2 mr-4 items-center">Comments:<div class="ml-1 text-gray-400 text-ms"> {comments.length}</div></div>
                     <div class="flex text-white font-normal rounded-md mb-2 mr-4 items-center">Relatability: <div class="ml-1 text-gray-400 text-ms"> 300</div></div>
                 </div>
                 <div class="mt-3 mx-5 w-full flex justify-end text-xs">
@@ -287,7 +289,7 @@
             </div>
 
             <div class="relative flex items-center self-center w-full max-w-xl p-4 overflow-hidden text-gray-600 focus-within:text-gray-400">
-                <img class="w-10 h-10 object-cover rounded-full shadow mr-2 cursor-pointer" alt="User avatar" src="images/womanprofile.jpg">
+                <img class="w-10 h-10 object-cover rounded-full shadow mr-2 cursor-pointer" alt="User avatar" src="../views/images/womanprofile.jpg">
                 <span class="absolute inset-y-0 right-0 flex items-center pr-6">
                     <button type="submit" class="p-1 focus:outline-none focus:shadow-none hover:text-white">
                     <svg class="w-6 h-6 transition ease-out duration-300 hover:text-white text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -299,7 +301,7 @@
                    <input type="comments" class="w-full py-2 pl-4 pr-10 text-sm bg-gray-100 border border-transparent appearance-none rounded-tg placeholder-gray-400 focus:bg-white focus:outline-none focus:border-blue-500 focus:text-gray-900 focus:shadow-outline-blue" style="border-radius: 25px" placeholder="Post a comment..." autocomplete="off">
                   
                    <!--comment btn-->
-                   <button class="flex items-center py-2 px-4 rounded-sm text-sm bg-slate-700 text-white shadow-lg">comment
+                   <button class="flex items-center py-2 px-4 rounded-sm text-sm bg-black text-white shadow-lg">comment
                     <svg class="ml-1" viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
                 </button>
                 </div>
@@ -310,7 +312,7 @@
         <div class="bg-black shadow rounded-lg pb-4">
                 <div class="flex flex-row px-2 py-3 mx-3">
                     <div class="w-auto h-auto rounded-full border-2 border-green-500">
-                        <img class="w-12 h-12 object-cover rounded-full shadow cursor-pointer" alt="User avatar" src="images/womanprofile.jpg">
+                        <img class="w-12 h-12 object-cover rounded-full shadow cursor-pointer" alt="User avatar" src="../views/images/womanprofile.jpg">
                     </div>
                     <div class="flex flex-col mb-2 ml-4 mt-1">
                         <div class="inline flex text-white text-sm font-semibold"><span class="flex-1 flex-shrink-0">MsGoodIfYaNasty</span>
@@ -326,10 +328,10 @@
                     </div>
                 </div>
                 <div class="border-b border-gray-100 p-4"></div>
-                <button class="flex items-center py-2 px-4 rounded-sm text-sm bg-slate-700 text-white shadow-lg text-center">Delete
+                <button class="flex items-center py-2 px-4 rounded-sm text-sm bg-black text-white shadow-lg text-center">Delete
     
                 </button>
-                <button class="flex items-center py-2 px-4 rounded-sm text-sm bg-slate-700 text-white shadow-lg text-center">Edit
+                <button class="flex items-center py-2 px-4 rounded-sm text-sm bg-black text-white shadow-lg text-center">Edit
     
                 </button>
          <!--        <div class="text-gray-400 font-medium text-sm mb-7 mt-6 mx-3 px-2">
@@ -372,7 +374,7 @@
                     </div>
                 </div>
                 <div class="relative flex items-center self-center w-full max-w-xl p-4 overflow-hidden text-gray-600 focus-within:text-gray-400">
-                    <img class="w-10 h-10 object-cover rounded-full shadow mr-2 cursor-pointer" alt="User avatar" src="images/womanprofile.jpg">
+                    <img class="w-10 h-10 object-cover rounded-full shadow mr-2 cursor-pointer" alt="User avatar" src="../views/images/womanprofile.jpg">
                     <span class="absolute inset-y-0 right-0 flex items-center pr-6">
                         <button type="submit" class="p-1 focus:outline-none focus:shadow-none hover:text-blue-500">
                         <svg class="w-6 h-6 transition ease-out duration-300 hover:text-blue-500 text-gray-400" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -382,7 +384,7 @@
                         </button>
                     </span>
                      <input type="search" class="w-full py-2 pl-4 pr-10 text-sm bg-gray-100 border border-transparent appearance-none rounded-tg placeholder-gray-400 focus:bg-white focus:outline-none focus:border-blue-500 focus:text-gray-900 focus:shadow-outline-blue" style="border-radius: 25px" placeholder="Post a comment..." autocomplete="off">
-                     <button class="flex items-center py-2 px-4 rounded-sm text-sm bg-slate-700 text-white shadow-lg text-center">comment
+                     <button class="flex items-center py-2 px-4 rounded-sm text-sm bg-black text-white shadow-lg text-center">comment
                         <svg class="ml-1" viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
                     </button>
                 
@@ -392,7 +394,7 @@
             <div class="bg-black shadow rounded-lg mt-10">
                 <div class="flex flex-row px-2 py-3 mx-3">
                     <div class="w-auto h-auto rounded-full border-2 border-green-500">
-                        <img class="w-12 h-12 object-cover rounded-full shadow cursor-pointer" alt="User avatar" src="images/beingme.jpg">
+                        <img class="w-12 h-12 object-cover rounded-full shadow cursor-pointer" alt="User avatar" src="../views/images/beingme.jpg">
                     </div>
                     <div class="flex flex-col mb-2 ml-4 mt-1">
                         <div class="text-white text-sm font-semibold">BeingNothingButMe</div>
@@ -407,14 +409,14 @@
                     </div>
                 </div>
                 <div class="border-b border-gray-100"></div>
-                <button class="flex items-center py-2 px-4 rounded-sm text-sm bg-slate-700 text-white shadow-lg text-center">Delete
+                <button class="flex items-center py-2 px-4 rounded-sm text-sm bg-black text-white shadow-lg text-center">Delete
     
                 </button>
-                <button class="flex items-center py-2 px-4 rounded-sm text-sm bg-slate-700 text-white shadow-lg text-center">Edit
+                <button class="flex items-center py-2 px-4 rounded-sm text-sm bg-black text-white shadow-lg text-center">Edit
     
                 </button>
                 <div class="text-gray-400 font-medium text-sm mb-7 mt-6 mx-3 px-2">
-                    <img class="rounded w-full" src="./images/beingme.jpg">
+                    <img class="rounded w-full" src="../views/images/beingme.jpg">
                 </div>
                 <div class="text-white font-semibold  mb-2 mx-3 px-2">Party Time</div>
                 <div class="text-white text-sm mb-6 mx-3 px-2">Great Weather, Great Company, Great Purpose, Great Cause. I'm so happy I decided to come to D.C. this weekend. Anyone in the area willing to show me around? </div>
@@ -453,7 +455,7 @@
                     </div>
                 </div>
                 <div class="relative flex items-center self-center w-full max-w-xl p-4 overflow-hidden text-gray-600 focus-within:text-gray-400">
-                    <img class="w-10 h-10 object-cover rounded-full shadow mr-2 cursor-pointer" alt="User avatar" src="images/womanprofile.jpg">
+                    <img class="w-10 h-10 object-cover rounded-full shadow mr-2 cursor-pointer" alt="User avatar" src="../views/images/womanprofile.jpg">
                     <span class="absolute inset-y-0 right-0 flex items-center pr-6">
                         <button type="submit" class="p-1 focus:outline-none focus:shadow-none hover:text-blue-500">
                         <svg class="w-6 h-6 transition ease-out duration-300 hover:text-blue-500 text-gray-400" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -464,7 +466,7 @@
                     </span>
                      <input type="search" class="w-full py-2 pl-4 pr-10 text-sm bg-gray-100 border border-transparent appearance-none rounded-tg placeholder-gray-400 focus:bg-white focus:outline-none focus:border-blue-500 focus:text-gray-900 focus:shadow-outline-blue" style="border-radius: 25px" placeholder="Post a comment..." autocomplete="off">
                 
-                     <button class="flex items-center py-2 px-4 rounded-sm text-sm bg-slate-700 text-white shadow-lg text-center">comment
+                     <button class="flex items-center py-2 px-4 rounded-sm text-sm bg-black text-white shadow-lg text-center">comment
                         <svg class="ml-1" viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
                     </button>
                 
