@@ -9,7 +9,6 @@
     "build": "tailwindcss build app.css -o public/style.css",
     "watch": "tailwindcss build app.css -o public/style.css -w"
   },
-
   "keywords": [],
   "author": "",
   "license": "ISC",
@@ -20,8 +19,10 @@
     "express": "^4.18.1",
     "express-handlebars": "^6.0.5",
     "express-session": "^1.17.2",
+    "handlebars": "^4.7.7",
     "mysql2": "^2.3.3",
-    "sequelize": "^6.19.0"
+    "sequelize": "^6.19.2",
+    "sqlite3": "^5.0.8"
   },
   "repository": {
     "type": "git",
