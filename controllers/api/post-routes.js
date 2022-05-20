@@ -1,10 +1,6 @@
 
 const router = require('express').Router();
-<<<<<<< HEAD
-const { Post, User, Comment } = require('../../models');
-=======
 const { Post, User, Comment, Heart } = require('../../models');
->>>>>>> 852191127d5be31cdc76eb95221ba213091f473b
 const withAuth = require('../../utils/auth');
 const sequelize = require('../../config/connection');
 
@@ -134,15 +130,6 @@ router.put('/:id', withAuth, (req, res) => {
             }
         }
     )
-<<<<<<< HEAD
-    .then(dbPostData => {
-        if (!dbPostData) {
-          res.status(404).json({ message: 'No post found with this id' });
-          return;
-        }
-        res.json(dbPostData);
-    })
-=======
         .then(dbPostData => {
             if (!dbPostData) {
                 res.status(404).json({ message: 'No post found with this id' });
@@ -150,7 +137,6 @@ router.put('/:id', withAuth, (req, res) => {
             }
             res.json(dbPostData);
         })
->>>>>>> 852191127d5be31cdc76eb95221ba213091f473b
         .catch(err => {
             console.log(err);
             res.status(500).json(err);
@@ -165,20 +151,6 @@ router.delete('/:id', withAuth, (req, res) => {
         }
     }
     )
-<<<<<<< HEAD
-    .then(dbPostData => {
-        if (!dbPostData) {
-          res.status(404).json({ message: 'No post found with this id' });
-          return;
-        }
-        res.json(dbPostData);
-      })
-      .catch(err => {
-        console.log(err);
-        res.status(500).json(err);
-      });
-  });
-=======
         .then(dbPostData => {
             if (!dbPostData) {
                 res.status(404).json({ message: 'No post found with this id' });
@@ -195,7 +167,6 @@ router.delete('/:id', withAuth, (req, res) => {
 
 
 
->>>>>>> 852191127d5be31cdc76eb95221ba213091f473b
 
 
 module.exports = router;
