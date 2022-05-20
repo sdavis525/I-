@@ -3,12 +3,12 @@
   <li>
     <article class="post">
       <div class="title">
-        <a href="{{posts.text}}" target="_blank">{{posts.title}}</a>
-        <span>({{posts.text}})</span>
+        <a href="" target="_blank">{{title}}</a>
+        <span>{{post_text}}</span>
       </div>
       <div class="meta">
-        {{!-- {{like_count}} by {{user.username}} on
-        {{created_at}} --}}
+        {{heart_count}} by {{user.username}} on
+        {{created_at}}
         |
         <a href="/post/{{id}}">{{comments.length}} comment(s)</a>
       </div>

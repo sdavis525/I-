@@ -92,7 +92,7 @@ router.get('/edit/:id', withAuth, (req, res) => {
       const post = dbPostData.get({ plain: true });
 
       // pass data to edit-post.handlebars template (to be made)
-      res.render('edit-post', { post, loggedIn: true });
+      res.render('edit-post', { posts, loggedIn: true });
     })
     .catch(err => {
       console.log(err);

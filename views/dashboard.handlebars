@@ -1,0 +1,27 @@
+<div class="block md:grid md:grid-flow-row-dense md:grid-cols-3 md:grid-rows-3 ">
+    <div class="col-span-2">
+       <div class="pt-10">
+
+</div>
+{{#if posts.length}}
+<div class="block md:grid md:grid-flow-row-dense md:grid-cols-3 md:grid-rows-3 ">
+    <div class="col-span-2">
+       <div class="pt-10">
+<h2>Your Posts</h2>
+<br>
+  <ol>
+    {{#each posts as |post|}}
+    <li>
+    <a href="">{{post.title}}</a>
+    <br>
+    <span>{{post_text}}</span>
+    </li>
+    <br>
+    {{/each}}
+  </ol>
+</div>
+{{/if}}
+
+
+
+<script src="/javascript/post.js"></script>
