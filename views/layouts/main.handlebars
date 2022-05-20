@@ -29,13 +29,47 @@
 </style>
  {{#if loggedIn}}
         <a href="/views/dashboard.handlebars">Dashboard</a>
-         </button>
-            <button class="flex items-center py-2 px-4 rounded-sm text-sm bg-black text-white shadow-lg text-center">Logout
-    
-            </button>
         {{else}}
         <a href="/views/login.handlebars">Login</a>
         {{/if}}
+        <div class="flex justify-between">
+            <ul class="flex items-center flex-shrink-0 space-x-6">
+              <!-- Profile menu -->
+             
+              <li class="relative ">
+                <button class="align-middle rounded-full border-2 border-gray-300 shadow-lg  focus:shadow-outline-purple focus:outline-none">
+                  <img class="object-cover w-10 h-10 rounded-full hover-image-1 flex-shrink-0" src="https://picsum.photos/200/200?i=203" alt="" aria-hidden="true">
+                </button>
+              </li>
+
+                     <li class="relative">
+                <button class="align-middle rounded-full border-2 border-gray-300 shadow-lg  focus:shadow-outline-purple focus:outline-none">
+                  <img class="object-cover w-10 h-10 rounded-full hover-image-1 flex-shrink-0" src="https://picsum.photos/200/200?i=205" alt="" aria-hidden="true">
+                </button>
+              </li>
+
+                     <li class="relative">
+                <button class="align-middle rounded-full border-2 border-gray-300 shadow-lg  focus:shadow-outline-purple focus:outline-none">
+                  <img class="object-cover w-10 h-10 rounded-full hover-image-1 flex-shrink-0" src="https://picsum.photos/200/200?i=207" alt="" aria-hidden="true">
+                </button>
+              </li>
+
+                     <li class="relative">
+                <button class="align-middle rounded-full border-2 border-gray-300 shadow-lg  focus:shadow-outline-purple focus:outline-none">
+                  <img class="object-cover w-10 h-10 rounded-full hover-image-1 flex-shrink-0" src="https://picsum.photos/200/200?i=209" alt="" aria-hidden="true">
+                </button>
+              </li>
+
+                  <li class="relative">
+                <button class="align-middle rounded-full border-2 border-gray-300 shadow-lg  focus:shadow-outline-purple focus:outline-none">
+                  <img class="object-cover w-10 h-10 rounded-full hover-image-1 flex-shrink-0" src="https://picsum.photos/200/200?i=2011" alt="" aria-hidden="true">
+                </button>
+              </li>
+
+            </ul>
+
+          </div>
+
  <div class="flex h-screen  bg-black" :class="{ 'overflow-hidden': isSideMenuOpen}">
         <li class="relative ">
             <button class="align-middle rounded-full border-2 border-gray-300 shadow-lg  focus:shadow-outline-purple focus:outline-none">
@@ -121,10 +155,9 @@
           </a>
         </div>
         </button>
-            
-            <button class="flex items-center py-2 px-4 rounded-sm text-sm bg-black text-white shadow-lg text-center">Logout
-    
-        </button>
+            <div class="logout">
+            <button type="button" class="flex items-center py-2 px-4 rounded-sm text-sm bg-black text-white shadow-lg text-center">Logout</button>
+        </div>
       </aside>
 
     <main>
@@ -146,13 +179,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="border-b border-gray-100 p-4"></div>
-                <button class="flex items-center py-2 px-4 rounded-sm text-sm bg-black text-white shadow-lg text-center">Delete
-    
-                </button>
-                <button class="flex items-center py-2 px-4 rounded-sm text-sm bg-black text-white shadow-lg text-center">Edit
-    
-                </button>
+               
          <!--        <div class="text-gray-400 font-medium text-sm mb-7 mt-6 mx-3 px-2">
                     <img class="rounded w-full" src="https://picsum.photos/536/354">
                 </div> -->
@@ -228,12 +255,7 @@
                     </div>
                 </div>
                 <div class="border-b border-gray-100"></div>
-                <button class="flex items-center py-2 px-4 rounded-sm text-sm bg-black text-white shadow-lg text-center">Delete
-    
-                </button>
-                <button class="flex items-center py-2 px-4 rounded-sm text-sm bg-black text-white shadow-lg text-center">Edit
-    
-                </button>
+             
                 <div class="text-gray-400 font-medium text-sm mb-7 mt-6 mx-3 px-2">
                     <img class="rounded w-full" src="../views/images/beingme.jpg">
                 </div>
@@ -425,7 +447,7 @@
 </html>
   
   {{#if loggedIn}}
-  <script src="/javascript/logout.js"></script>
+  <script src="/public/javascript/logout.js"></script>
   {{/if}}
 </body>
 
