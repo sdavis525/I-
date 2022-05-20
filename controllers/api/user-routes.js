@@ -1,6 +1,7 @@
 const router = require('express').Router();
-const { User } = require('../../models');
+const { User, Post, Comment, Heart, Interested } = require('../../models');
 const withAuth = require('../../utils/auth');
+const sequelize = require('../../config/connection');
 
 // GET ALL USERS  - /api/users
 router.get('/', (req, res) => {
@@ -24,7 +25,7 @@ router.get('/:id', (req, res) => {
     include: [
       {
         model: Post,
-        attributes: ['id', 'title', 'post_url', 'created_at']
+        attributes: ['id', 'title', 'post_text', 'created_at']
       },
       {
         model: Comment,
@@ -37,8 +38,8 @@ router.get('/:id', (req, res) => {
       // {
       //   model: Post,
       //   attributes: ['title'],
-      //   through: Vote,
-      //   as: 'voted_posts'
+      //   through: Heart,
+      //   as: 'hearted_posts'
       // }
     ]
   })
@@ -57,14 +58,16 @@ router.get('/:id', (req, res) => {
 
 
 //CREATE NEW USER  -  /api/users
-router.post('/', withAuth, (req, res) => {
+router.post('/', (req, res) => {
   User.create({
     username: req.body.username,
     email: req.body.email,
     password: req.body.password,
     gender: req.body.gender,
     seeking: req.body.seeking,
-    interest: req.body.interest
+    interest: req.body.interest,
+    occupation: req.body.occupation,
+    about: req.body.about
   })
     //save user id and email to a session
     .then(dbUserData => {
@@ -81,6 +84,17 @@ router.post('/', withAuth, (req, res) => {
       res.status(500).json(err);
     });
 });
+
+//logged in user will be able to 'click' and show another user they are interested in them
+//PUT /api/users/interested
+router.put('/interested', (req, res) => {
+  Interested.create({
+    user_id: req.body.user_id,
+  })
+    .then(dbUserData => res.json(dbUserData))
+    .catch(err => res.json(err));
+});
+
 
 //LOGIN ROUTE  -  api/users/login
 router.post('/login', (req, res) => {
@@ -169,5 +183,5 @@ router.put('/:id', (req, res) => {
         res.status(500).json(err);
       });
   });
-  
+
 module.exports = router;
