@@ -1,16 +1,30 @@
-<ol class="post-list">
-  <li>
-    <article class="post">
-      <div class="title">
-        <a href="{{post_content}}" target="_blank">{{title}}</a>
-        <span>({{post_content}})</span>
-      </div>
-      <div class="meta">
-        {{!-- {{like_count}} by {{user.username}} on
-        {{created_at}} --}}
-        |
-        <a href="/post/{{id}}">{{comments.length}} comment(s)</a>
-      </div>
-    </article>
-  </li>
-</ol>
+
+
+<section class="grid grid-cols-7">
+  <div class="col-start-3 col-end-6">
+    <div class="bg-black shadow rounded-lg mt-16 mb-6 p-4 w-full ">
+      {{#if posts.length}}
+
+      <h2 class="text-white text-2xl font-bold">User Posts</h2>
+      <br>
+      <ol>
+        {{#each posts as |post|}}
+        <li
+          class=" focus:outline-none  w-full rounded-lg p-1 text-sm bg-gray-100 border border-transparent appearance-none rounded-tg placeholder-gray-400">
+          <a href="/single-post/" class="font-medium text-lg">{{title}}</a>
+          <br>
+          <span>{{post_text}}</span><br>
+          <span> by {{user.username}} on
+            {{created_at}}</span><br>
+            <span>{{heart_count}} &#10084 s</span>  &nbsp &nbsp
+          <span><a href="/post/{{id}}">{{comments.length}} comment(s)</a></span>
+
+        </li>
+        <br>
+        {{/each}}
+      </ol>
+
+      {{/if}}
+    </div>
+  </div>
+</section>

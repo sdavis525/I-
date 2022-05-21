@@ -40,7 +40,8 @@ User.hasMany(Heart, {
 });
 
 Post.hasMany(Heart, {
-  foreignKey: 'post_id'
+  foreignKey: 'post_id',
+  onDelete: 'cascade'
 });
 
 Comment.belongsTo(User, {
@@ -61,11 +62,11 @@ Post.hasMany(Comment, {
 
 //Begin Interested in test associations:
 Interested.belongsTo(User, {
-  foerignKey: 'user_id'
+  foreignKey: 'user_id'
 });
 
 User.hasMany(Interested, {
-  foerignKey: 'user_id'
+  foreignKey: 'user_id'
 });
 
 module.exports = { User, Post, Heart, Comment, Interested };
