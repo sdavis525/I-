@@ -35,9 +35,17 @@
                 {{#each posts as |post|}}
                 <li
                     class=" focus:outline-none  w-full rounded-lg p-1 text-sm bg-gray-100 border border-transparent appearance-none rounded-tg placeholder-gray-400">
-                    <a href="" class="font-medium text-lg">{{post.title}}</a>
+                    <a href="" class="font-bold text-xl">{{post.title}}</a>
                     <br>
-                    <span>{{post_text}}</span>
+                    <span class="font-medium text-lg" >{{post_text}}</span><br>
+                    
+                    <span class="text-sm"> Created on
+                        {{created_at}}</span><br>
+                        <span>{{heart_count}} &#10084 s</span> &nbsp &nbsp
+                    <span><a href="/post/{{id}}" class="text-sm">{{comments.length}} comment(s)</a></span>
+                
+                    
+
                 </li>
                 <br>
                 {{/each}}
