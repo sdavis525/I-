@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const sequelize = require('../config/connection');
-const { Post, User, Comment, Like } = require('../models');
+const { Post, User, Comment, Heart } = require('../models');
 
 // GET POSTS FOR HOMEPAGE
 router.get('/', (req, res) => {
@@ -11,6 +11,7 @@ router.get('/', (req, res) => {
             'post_text',
             'title',
             'created_at',
+            [sequelize.literal('(SELECT COUNT(*) FROM heart WHERE post.id = heart.post_id)'), 'heart_count']
         ],
         include: [
             {

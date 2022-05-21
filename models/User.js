@@ -50,14 +50,14 @@ User.init(
       type: DataTypes.STRING,
       allowNull: false
     },
-    occupation: {
-      type: DataTypes.STRING,
-      allowNull: false
-    },
-    about: {
-      type: DataTypes.STRING,
-      allowNull: false
-    }
+    // occupation: {
+    //   type: DataTypes.STRING,
+      // allowNull: false
+    // },
+    // about: {
+    //   type: DataTypes.STRING,
+      // allowNull: false
+    //}
   },
   {
     hooks: {
