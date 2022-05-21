@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" style="height:100%">
 
 <head>
   <meta charset="UTF-8">
@@ -11,32 +11,42 @@
   
 </head>
 
-<body>
-  <div class="wrapper">
-    <header>
-      <h1>
-        <a href="/">i++</a>
-      </h1>
-      <nav>
-        {{#if loggedIn}}
-        <a href="/dashboard">Dashboard</a>
-        <button id="logout" class="btn-no-style">Logout</button>
-        {{else}}
-        <a href="/login">Login</a>
-        {{/if}}
-      </nav>
-    </header>
+<body style="background: linear-gradient(#690707, #9198e5);">
+
+
+<ul class="flex">
+  <li class="flex-1 mt-4 mb-2 ml-4 mr-4">
+    <a class="font-bold text-2xl text-center block border rounded py-2 px-4 bg-black hover:bg-blue-400 text-white" href="/">i++</a>
+  </li>
+   {{#if loggedIn}}
+   <li class="flex-1 mt-4 mb-2 ml-4 mr-4">
+    <a class="font-bold text-xl text-center block border rounded py-2 px-4 bg-black hover:bg-blue-400 text-white" href="/dashboard">Dashboard</a>
+  </li>
+  <li class="flex-1 mt-4 mb-2 ml-4 mr-4">
+    <a class="font-bold text-xl text-center block border rounded py-2 px-4 bg-black hover:bg-blue-400 text-white" id="logout">Logout</a>
+  </li>
+</ul>
+  {{else}}
+<li class="flex-1 mt-4 mb-2 ml-4 mr-4">
+    <a class="font-bold text-xl text-center block border rounded py-2 px-4 bg-black hover:bg-blue-400 text-white" href="/login">Login</a>
+  </li>
+{{/if}}
+</header>
     <main>
       {{{ body }}}
     </main>
-    <footer>
-      Thanks for visiting!
+    <footer class="text-center">
+      Thanks for visiting! Come fluff your feathers again soon you love birds! 
+      <br>
+      <span class="text-xl font-style: italic font-bold text-red-900">i++</span>
     </footer>
-  </div>
   
   {{#if loggedIn}}
   <script src="/javascript/logout.js"></script>
+  {{else}}
+  <script src="/javascript/login.js"></script>
   {{/if}}
+
 </body>
 
-</html>
+</html> 

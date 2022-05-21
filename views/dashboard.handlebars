@@ -1,55 +1,50 @@
-
-<section class="grid">
-    <div class="col-start-3 col-end-9">
-        <div class="pt-10">
-            <form class="new-post-form">
-                <div class="bg-black shadow rounded-lg mb-6 p-4 w-full md:w-3/4">
+<section class="grid grid-cols-7">
+    <div class="col-start-3 col-end-6">
+        <form class="new-post-form">
+            <div class="bg-black shadow rounded-lg mb-6 mt-16 p-4 w-full ">
                 <h2 class="text-white text-2xl font-bold mb-4">Enter a New Post</h2>
-                    <textarea id="post-title" name="message" placeholder="Type in a title here"
-                        class=" focus:outline-none  w-full rounded-lg p-1 text-sm bg-gray-100 border border-transparent appearance-none rounded-tg placeholder-gray-400"></textarea>
-                    <textarea id="post-text" name="message" placeholder="Type in some text here"
-                        class=" focus:outline-none  w-full rounded-lg p-4 text-sm bg-gray-100 border border-transparent appearance-none rounded-tg placeholder-gray-400"></textarea>
-                    <footer class="flex justify-between mt-2">
-                        `
-                        <div class="btn">
-                            <button type="submit"
-                                class="flex items-center py-2 px-4 rounded-lg text-sm bg-slate-100 text-white shadow-lg outline-white">Post
-                                <svg class="ml-1" viewBox="0 0 24 24" width="16" height="16" stroke="currentColor"
-                                    stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                                    <line x1="22" y1="2" x2="11" y2="13"></line>
-                                    <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
-                                </svg>
-                            </button>
-                        </div>
-                    </footer>
-                </div>
-            </form>
-        </div>
+                <textarea id="post-title" name="message" placeholder="Type in a title here"
+                    class=" focus:outline-none  w-full rounded-lg p-1 text-sm bg-gray-100 border border-transparent appearance-none rounded-tg placeholder-gray-400"></textarea>
+                <textarea id="post-text" name="message" placeholder="Type in some text here"
+                    class=" focus:outline-none  w-full rounded-lg p-4 text-sm bg-gray-100 border border-transparent appearance-none rounded-tg placeholder-gray-400"></textarea>
+                <footer class="flex justify-between mt-2">
+                    `
+                    <div class="btn">
+                        <button type="submit"
+                            class="flex items-center py-2 px-4 rounded-lg text-sm bg-slate-100 text-white shadow-lg outline-white">Post
+                            <svg class="ml-1" viewBox="0 0 24 24" width="16" height="16" stroke="currentColor"
+                                stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="22" y1="2" x2="11" y2="13"></line>
+                                <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                            </svg>
+                        </button>
+                    </div>
+                </footer>
+            </div>
+        </form>
     </div>
 </section>
 
-<section class="grid">
-    <div class="col-start-3 col-end-9">
-        <div class="pt-10">
-            <div class="bg-black shadow rounded-lg mb-6 p-4 w-full md:w-3/4">
-                {{#if posts.length}}
-
-                <h2 class="text-white text-2xl font-bold">Your Posts</h2>
-                <br>
-                <ol>
-                    {{#each posts as |post|}}
-                    <li
-                        class=" focus:outline-none  w-full rounded-lg p-1 text-sm bg-gray-100 border border-transparent appearance-none rounded-tg placeholder-gray-400">
-                        <a href="" class="font-medium text-lg">{{post.title}}</a>
-                        <br>
-                        <span>{{post_text}}</span>
-                    </li>
+<section class="grid grid-cols-7">
+    <div class="col-start-3 col-end-6">
+        <div class="bg-black shadow rounded-lg mb-6 p-4 w-full ">
+            {{#if posts.length}}
+            <h2 class="text-white text-2xl font-bold">Your Posts</h2>
+            <br>
+            <ol>
+                {{#each posts as |post|}}
+                <li
+                    class=" focus:outline-none  w-full rounded-lg p-1 text-sm bg-gray-100 border border-transparent appearance-none rounded-tg placeholder-gray-400">
+                    <a href="" class="font-medium text-lg">{{post.title}}</a>
                     <br>
-                    {{/each}}
-                </ol>
-
-                {{/if}}
-            </div>
+                    <span>{{post_text}}</span>
+                </li>
+                <br>
+                {{/each}}
+            </ol>
+            {{/if}}
+        </div>
+    </div>
 </section>
 
 
