@@ -24,6 +24,7 @@ User.belongsToMany(Post, {
 Post.belongsToMany(User, {
   through: Heart,
   as: 'Hearted_posts',
+  
   foreignKey: 'post_id'
 });
 

@@ -55,6 +55,7 @@ User.init(
     },
     about: {
       type: DataTypes.STRING
+    }
   },
   {
     hooks: {
