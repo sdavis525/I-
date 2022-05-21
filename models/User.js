@@ -50,23 +50,12 @@ User.init(
       type: DataTypes.STRING,
       allowNull: false
     },
-<<<<<<< HEAD
-    // occupation: {
-    //   type: DataTypes.STRING,
-      // allowNull: false
-    // },
-    // about: {
-    //   type: DataTypes.STRING,
-      // allowNull: false
-    //}
-=======
     occupation: {
       type: DataTypes.STRING
     },
     about: {
       type: DataTypes.STRING
     }
->>>>>>> feature/Ed-Kubiak
   },
   {
     hooks: {
