@@ -66,8 +66,8 @@ router.post('/', (req, res) => {
     gender: req.body.gender,
     seeking: req.body.seeking,
     interest: req.body.interest,
-    occupation: req.body.occupation,
-    about: req.body.about
+    // occupation: req.body.occupation,
+    // about: req.body.about
   })
     //save user id and email to a session
     .then(dbUserData => {

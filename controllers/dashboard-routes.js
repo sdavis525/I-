@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const sequelize = require('../config/connection');
-const { Post, User, Comment, Like } = require('../models');
+const { Post, User, Comment, Heart } = require('../models');
 const withAuth = require('../utils/auth');
 
 //GET ALL POSTS for dashboard   -   /dashboard
@@ -15,7 +15,11 @@ router.get('/', withAuth, (req, res) => {
             'id', 
             'post_text',
             'title',
-            'created_at'
+            'created_at',
+            [
+              sequelize.literal('(SELECT COUNT(*) FROM heart WHERE post.id = heart.post_id)'),
+              'heart_count'
+            ]
         ],
         include: [
             {
@@ -59,10 +63,10 @@ router.get('/edit/:id', withAuth, (req, res) => {
         'post_text', 
         'title', 
         'created_at',
-        // [
-        //   sequelize.literal('(SELECT COUNT(*) FROM like WHERE post.id = like.post_id)'),
-        //   'like_count'
-        // ]
+        [
+          sequelize.literal('(SELECT COUNT(*) FROM heart WHERE post.id = heart.post_id)'),
+          'heart_count'
+        ]
       ],
       include: [
         // include the Comment model
@@ -92,7 +96,7 @@ router.get('/edit/:id', withAuth, (req, res) => {
       const post = dbPostData.get({ plain: true });
 
       // pass data to edit-post.handlebars template (to be made)
-      res.render('edit-post', { post, loggedIn: true });
+      res.render('edit-post', { posts, loggedIn: true });
     })
     .catch(err => {
       console.log(err);
