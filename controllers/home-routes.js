@@ -72,11 +72,7 @@ router.get('/posts/:id', (req, res) => {
     })
         .then(dbPostData => {
             //loop over and map each sequelize object into a serialized version of itself
-<<<<<<< HEAD
-            const posts = dbPostData.get(post => post.get({ plain: true }));
-=======
             const posts = dbPostData.get({ plain: true });
->>>>>>> 7bb309713682a9c28f850054a8f5264719236413
             //render object 'posts' to homepage.handlebars file
             res.render('single-post', { posts, loggedIn: req.session.loggedIn });
         })
