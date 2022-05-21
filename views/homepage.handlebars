@@ -7,15 +7,16 @@
       <br>
       <ol>
         {{#each posts as |post|}}
+      
         <li
           class=" focus:outline-none  w-full rounded-lg p-1 text-sm bg-gray-100 border border-transparent appearance-none rounded-tg placeholder-gray-400">
-          <a href="/single-post/" class="font-medium text-lg">{{title}}</a>
+          <a href="/posts/{{post.id}}" class="font-medium text-lg">{{title}}</a>
           <br>
           <span>{{post_text}}</span><br>
           <span> by {{user.username}} on
             {{created_at}}</span><br>
             <span>{{heart_count}} &#10084 s</span>  &nbsp &nbsp
-          <span><a href="/post/{{id}}">{{comments.length}} comment(s)</a></span>
+          <span><a href="/posts/{{id}}">{{comments.length}} comment(s)</a></span>
 
         </li>
         <br>
