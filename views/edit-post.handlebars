@@ -1,63 +1,57 @@
-<article>
-    {{!-- <a href="/dashboard"> &larr; Back to dashboard</a> --}}
+<form class="edit-post-form">
+    <div class="grid grid-cols-7">
+        <div class="col-start-2 col-end-8 mt-8">
+            <div class="pt-10">
+                <div class="bg-black shadow rounded-lg mb-6 p-4 w-full md:w-3/4">
+                    <h2 class="text-white text-2xl font-bold mb-4">
+                        Edit Post
+                    </h2>
+                    <textarea id="post-title" name="post-title" type="text" value="{{posts.title}}"
+                        placeholder="Edit your post title here"
+                        class=" focus:outline-none  w-full rounded-lg p-6 text-sm bg-gray-100 border border-transparent appearance-none rounded-tg placeholder-gray-400"></textarea>
+                    <textarea id="post-text" name="post-text" type="text" value="{{posts.post_text}}"
+                        placeholder="Edit your post content here"
+                        class=" focus:outline-none  w-full rounded-lg p-6 text-sm bg-gray-100 border border-transparent appearance-none rounded-tg placeholder-gray-400"></textarea>
 
-    <form class="edit-post-form">
-        <div class="block md:grid md:grid-flow-row-dense md:grid-cols-3 md:grid-rows-3 ">
-            <div class="col-span-2">
-                <div class="pt-10">
-                    <div class="bg-black shadow rounded-lg mb-6 p-4 w-full md:w-3/4">
-                        <h2 class="text-white font-bold mb-4">
-                            Edit Post
-                        </h2>
-                        <textarea id="post-title" name="post-title" type="text" value="{{posts.title}}" placeholder="Edit your post title here"
-                            class=" focus:outline-none  w-full rounded-lg p-6 text-sm bg-gray-100 border border-transparent appearance-none rounded-tg placeholder-gray-400"></textarea>
-                        <textarea id="post-text" name="post-text" type="text" value="{{posts.post_text}}" placeholder="Edit your post content here"
-                            class=" focus:outline-none  w-full rounded-lg p-6 text-sm bg-gray-100 border border-transparent appearance-none rounded-tg placeholder-gray-400"></textarea>
-
-                        <div class="text-white">
-                            <span class="font-extralight font-thin"> Original Post: <br>
-                            "{{posts.title}}, <br>  {{posts.post_text}}" </span>
-                            <br>
-                             {{posts.created_at}}
-                             <br>
-                             {{posts.heart_count}} hearts,
-                            <br>
-                            <a href="/post/{{post.id}}">{{posts.comments.length}} Comment(s)</a>
+                    <div class="text-white">
+                        <span class="font-extralight font-thin"> Original Post: <br>
+                            "{{posts.title}}, <br> {{posts.post_text}}" </span>
+                        <br>
+                        {{posts.created_at}}
+                        <br>
+                        {{posts.heart_count}} hearts,
+                        <br>
+                        <a href="/post/{{post.id}}">{{posts.comments.length}} Comment(s)</a>
+                    </div>
+                    {{!-- EDIT BUTTON --}}
+                    <div class="flex gap-2">
+                        <div>
+                            <button type="submit"
+                                class="flex items-center py-2 px-4 rounded-lg outline-white text-sm bg-slate-700 text-white shadow-lg m-2 edit-post-btn">Edit
+                                <svg class="ml-1" viewBox="0 0 24 24" width="16" height="16" stroke="currentColor"
+                                    stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                    <line x1="22" y1="2" x2="11" y2="13"></line>
+                                    <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                                </svg>
+                            </button>
                         </div>
-
-
-                        <footer class="flex justify-between mt-2">
-                            <div class="flex gap-2">
-                                <div class="edit-post-btn">
-                                    <button type="submit"
-                                        class="flex items-center py-2 px-4 rounded-lg outline-white text-sm bg-slate-700 text-white shadow-lg m-2">Edit
-                                        <svg class="ml-1" viewBox="0 0 24 24" width="16" height="16"
-                                            stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"
-                                            stroke-linejoin="round">
-                                            <line x1="22" y1="2" x2="11" y2="13"></line>
-                                            <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
-                                        </svg>
-                                    </button>
-                                </div>
-                                <div class="delete-post-btn">
-                                    <button type="submit"
-                                        class="flex items-center py-2 px-4 rounded-lg outline-white text-sm bg-slate-700 text-white shadow-lg m-2">Delete
-                                        <svg class="ml-1" viewBox="0 0 24 24" width="16" height="16"
-                                            stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"
-                                            stroke-linejoin="round">
-                                            <line x1="22" y1="2" x2="11" y2="13"></line>
-                                            <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
-                                        </svg>
-                                    </button>
-                                </div>
-
-                        </footer>
+                        {{!-- DELETE BUTTON --}}
+                        <div class="delete-post-btn">
+                            <button type="submit"
+                                class="flex items-center py-2 px-4 rounded-lg outline-white text-sm bg-slate-700 text-white shadow-lg m-2">Delete
+                                <svg class="ml-1" viewBox="0 0 24 24" width="16" height="16" stroke="currentColor"
+                                    stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                    <line x1="22" y1="2" x2="11" y2="13"></line>
+                                    <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                                </svg>
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </form>
-</article>
+</form>
+
 
 
 
@@ -93,5 +87,6 @@
 
 
 <script src="/javascript/edit-post.js"></script>
-{{!-- <script src="/javascript/delete-post.js"></script>
+{{!--
+<script src="/javascript/delete-post.js"></script>
 <script src="/javascript/comment.js"></script> --}}

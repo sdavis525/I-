@@ -1,25 +1,31 @@
-async function editFormHandler(event) {
+ function editFormHandler(event) {
   event.preventDefault();
   
-  const title = document.querySelector('#post-title').value.trim();
+  const title = document.querySelector('input[name="post-title"]').value.trim();
+  const post_text = document.querySelector('input[name="post-text"]').value.trim();
+  
   const id = window.location.toString().split('/')[
     window.location.toString().split('/').length - 1
   ];
-  const response = await fetch(`/api/posts/${id}`, {
-    method: 'POST',
-    body: JSON.stringify({
-      title
-    }),
-    headers: {
-      'Content-Type': 'application/json'
-    }
-  });
 
-  if (response.ok) {
-    document.location.replace('/dashboard/');
-  } else {
-    alert(response.statusText);
-  }
+console.log('clicked!!' + title + post_text + id)
+
+  // const response = await fetch(`/api/posts/${id}`, {
+  //   method: 'PUT',
+  //   body: JSON.stringify({
+  //     title,
+  //     post_text
+  //   }),
+  //   headers: {
+  //     'Content-Type': 'application/json'
+  //   }
+  // });
+
+  // if (response.ok) {
+  //   document.location.replace('/dashboard/');
+  // } else {
+  //   alert(response.statusText);
+  // }
 }
 
 document.querySelector('.edit-post-btn').addEventListener('submit', editFormHandler);
