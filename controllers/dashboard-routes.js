@@ -21,6 +21,7 @@ router.get('/', withAuth, (req, res) => {
               'heart_count'
             ]
         ],
+        order: [['created_at', 'DESC']],
         include: [
             {
                 //include comments on posts
