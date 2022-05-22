@@ -1,4 +1,4 @@
-const {format_date, format_plural, format_url} = require('../utils/helpers');
+const {format_date, format_plural} = require('../utils/helpers');
 
 test('format_plural() returns a pluralized word', () => {
   const word1 = format_plural('tiger', 1);
