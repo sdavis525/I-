@@ -6,10 +6,10 @@
                     <h2 class="text-white text-2xl font-bold mb-4">
                         Edit Post
                     </h2>
-                    <textarea id="post-title" name="post-title" type="text" value="{{posts.title}}"
+                    <textarea name="post-title" type="text" value="{{posts.title}}"
                         placeholder="Edit your post title here"
                         class=" focus:outline-none  w-full rounded-lg p-6 text-sm bg-gray-100 border border-transparent appearance-none rounded-tg placeholder-gray-400"></textarea>
-                    <textarea id="post-text" name="post-text" type="text" value="{{posts.post_text}}"
+                    <textarea name="post-text" type="text" value="{{posts.post_text}}"
                         placeholder="Edit your post content here"
                         class=" focus:outline-none  w-full rounded-lg p-6 text-sm bg-gray-100 border border-transparent appearance-none rounded-tg placeholder-gray-400"></textarea>
 
@@ -25,9 +25,9 @@
                     </div>
                     {{!-- EDIT BUTTON --}}
                     <div class="flex gap-2">
-                        <div class="edit-btn">
+                        <div>
                             <button type="submit"
-                                class="flex items-center py-2 px-4 rounded-lg outline-white text-sm bg-slate-700 text-white shadow-lg m-2 edit-post-btn">Edit
+                                class="edit-btn flex items-center py-2 px-4 rounded-lg outline-white text-sm bg-slate-700 text-white shadow-lg m-2 edit-post-btn">Edit
                                 <svg class="ml-1" viewBox="0 0 24 24" width="16" height="16" stroke="currentColor"
                                     stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
                                     <line x1="22" y1="2" x2="11" y2="13"></line>
