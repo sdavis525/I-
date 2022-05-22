@@ -13,6 +13,7 @@ router.get('/', (req, res) => {
             'created_at',
             [sequelize.literal('(SELECT COUNT(*) FROM heart WHERE post.id = heart.post_id)'), 'heart_count']
         ],
+        order: [['created_at', 'DESC']],
         include: [
             {
                 model: Comment,
