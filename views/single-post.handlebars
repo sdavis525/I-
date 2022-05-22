@@ -28,12 +28,13 @@
             class="w-full py-2 pl-4 pr-10 text-sm bg-gray-100 border border-transparent appearance-none rounded-tg placeholder-gray-400 focus:bg-white focus:outline-none focus:border-blue-500 focus:text-gray-900 focus:shadow-outline-blue"
             style="border-radius: 25px" placeholder="Post a comment..." autocomplete="off">
         </div>
+        </form>
 
         {{!-- POSTED COMMENTS --}}
+       {{#if posts.comments.length}}
         <div
           class="focus:outline-none  w-full rounded-lg p-1 mt-8 text-sm bg-gray-100 border border-transparent appearance-none rounded-tg placeholder-gray-400">
           <span class="font-medium text-lg">Comments:</span> 
-
             {{#each posts.comments}}
             <div class="text">
               {{comment_text}}
@@ -44,9 +45,7 @@
             <br>
             {{/each}}
           </div>
-
-     
-      </form>
+    {{/if}}
     </div>
   </div>
 
