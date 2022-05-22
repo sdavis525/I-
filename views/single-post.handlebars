@@ -8,7 +8,7 @@
         <br>
         <span>{{posts.post_text}}</span><br>
         <span> by {{posts.user.username}} on
-          {{posts.created_at}}</span><br>
+          {{format_date posts.created_at}}</span><br>
         <span>{{posts.heart_count}} &#10084 s</span> 
         <span>{{posts.comments.comment_text}}</span>
       </div>
