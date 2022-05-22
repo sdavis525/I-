@@ -40,9 +40,9 @@
                     <span class="font-medium text-lg" >{{post_text}}</span><br>
                     
                     <span class="text-sm"> Created on
-                        {{created_at}}</span><br>
+                        {{format_date created_at}}</span><br>
                         <span>{{heart_count}} &#10084 s</span> &nbsp &nbsp
-                    <span><a href="/post/{{id}}" class="text-sm">{{comments.length}} comment(s)</a></span>
+                    <span><a href="/post/{{id}}" class="text-sm">{{comments.length}} {{format_plural "comment" comments.length}} </a></span>
                 
                     
 
