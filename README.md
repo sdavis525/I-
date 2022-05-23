@@ -14,28 +14,20 @@
   </a>
 </p>
 
-> i ++ is an open dating site, available to you no matter who you are or what defines you. Our online dating site intermixes the best of social media with the thrill of possibly finding what you are seeking. Whether that be a companion, life-long patner, spouse, hookup, or just a good time for a little time; i ++ has exactly what you are looking for. 
+> i ++ is an open dating site, available to you no matter who you are or what defines you. Our online dating site intermixes the best of social media with the thrill and possibly of finding what you are seeking. Whether that be a companion, life-long patner, spouse, hookup, or just a good time for a little time; i ++ has exactly what you are looking for. 
 
 ### 🏠 [Homepage](https://github.com/sdavis525/I-#readme)
 
-### ✨ [Demo](&#34;www&#34;)
-
-## Install
+### ✨ [Deployment](&#34;www&#34;)
 
 ```sh
-npm install
+https://peaceful-beach-75980.herokuapp.com/
 ```
 
 ## Usage
 
 ```sh
 npm run start
-```
-
-## Run tests
-
-```sh
-npm run test
 ```
 
 ## Author
@@ -56,6 +48,3 @@ Give a ⭐️ if this project helped you!
 
 Copyright © 2022 [Sophia Davis, Ashley Swarn, Edward Kubiak, Da'Quan Jordan, Alexander Singer, Jimmy Morgan, Roger Chan](https://github.com/sdavis525).<br />
 This project is [MIT](https://opensource.org/licenses/MIT) licensed.
-
-***
-_This README was generated with ❤️ by [readme-md-generator](https://github.com/kefranabg/readme-md-generator)_
