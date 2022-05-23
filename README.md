@@ -15,10 +15,9 @@
 
 ## Description
 
-```sh
+
 > i ++ is an open dating site, available to you no matter who you are or what defines you. Our online dating site intermixes the best of social media with the thrill and possibly of finding what you are seeking. Whether that be a companion, life-long patner, spouse, hookup, or just a good time for a little time; i ++ has exactly what you are looking for. 
 
-```
 
 ## User Story
 
