@@ -10,7 +10,7 @@
     <img alt="Maintenance" src="https://img.shields.io/badge/Maintained%3F-yes-green.svg" />
   </a>
   <a href="https://opensource.org/licenses/MIT" target="_blank">
-    <img alt="License: MIT" src="https://img.shields.io/github/license/sdavis525/i ++" />
+    <img alt="License: MIT" src="https://opensource.org/licenses/MIT" />
   </a>
 </p>
 
@@ -27,10 +27,10 @@ https://peaceful-beach-75980.herokuapp.com/
 ## Usage
 
 ```sh
-npm run start
+npm start
 ```
 
-## Author
+## Authors
 
 👤 **Sophia Davis, Ashley Swarn, Edward Kubiak, Da'Quan Jordan, Alexander Singer, Jimmy Morgan, Roger Chan**
 
