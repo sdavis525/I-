@@ -1,4 +1,3 @@
-
 async function heartPost (event) {
     
   const post_id = event.path[2].value.trim()
